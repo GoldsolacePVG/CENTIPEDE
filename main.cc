@@ -19,13 +19,27 @@
 
 void Init(){
   InitSprites();
+  InitPlayer();
+}
+
+void Update(){
+  UpdatePlayer();
+}
+
+void Draw(){
+  DrawPlayer();
+}
+
+void Game(){
+  Update();
+  Draw();
 }
 
 int esat::main(int argc, char** argv){
   double current_time = 0.0;
   double last_time = 0.0;
   double fps = 30.0;
-  esat::WindowInit(800, 800);
+  esat::WindowInit(kWindowWidth, kWindowHeight);
   WindowSetMouseVisibility(false);
   srand(time(NULL));
   Init();
@@ -35,7 +49,7 @@ int esat::main(int argc, char** argv){
     esat::DrawBegin();
     esat::DrawClear(0, 0, 0);
 
-
+    Game();
 
     esat::DrawEnd();
     esat::WindowFrame();

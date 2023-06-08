@@ -1,1 +1,3 @@
-void FreePointers(){}
+void FreePointers(){
+    free(player);
+}
